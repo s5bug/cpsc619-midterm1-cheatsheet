@@ -55,6 +55,20 @@
 
         \(\displaystyle \mathbf{H} = \frac{1}{\sqrt{2}} \begin{bmatrix}1 & 1 \\ 1 & -1\end{bmatrix}\)
 
+        \(\displaystyle \ket{\Phi^+} = \frac{1}{\sqrt{2}} \left[\ket{00} + \ket{11}\right]\) (from \(\ket{00}\))
+
+        \(\displaystyle \ket{\Psi^+} = \frac{1}{\sqrt{2}} \left[\ket{01} + \ket{10}\right]\) (from \(\ket{01}\))
+
+        \(\displaystyle \ket{\Phi^-} = \frac{1}{\sqrt{2}} \left[\ket{00} - \ket{11}\right]\) (from \(\ket{10}\))
+
+        \(\displaystyle \ket{\Psi^-} = \frac{1}{\sqrt{2}} \left[\ket{01} - \ket{10}\right]\) (from \(\ket{11}\))
+
+        \(\displaystyle \mathbf{A}\otimes\mathbf{B} = \begin{bmatrix}
+            a_{11} \mathbf{B} & \cdots & a_{1n}\mathbf{B} \\
+            \vdots & \ddots &           \vdots \\
+            a_{m1} \mathbf{B} & \cdots & a_{mn} \mathbf{B}
+        \end{bmatrix}\)
+
         \columnbreak[1]\section{Gate Equivalences}\label{sec:gate-equivalences}
 
         \(\displaystyle \mathbf{X}^2 = \mathbf{Y}^2 = \mathbf{Z}^2 = \mathbf{H}^2 = \mathbf{I}\)
@@ -101,6 +115,59 @@
         \end{quantikz} \equiv \begin{quantikz}
             & \gate{X} & \gate{H} & \\
             & \ctrl{-1} & \gate{H} &
+        \end{quantikz}
+
+        \begin{quantikz}
+            & \gate{Z} & \ctrl{1} & \\
+            & & \gate{X} &
+        \end{quantikz} \equiv \begin{quantikz}
+            & \ctrl{1} & \gate{Z} & \\
+            & \gate{X} & &
+        \end{quantikz}
+
+        \begin{quantikz}
+            & \ghost{Z} & \ctrl{1} & \\
+            & \gate{Z} & \gate{X} &
+        \end{quantikz} \equiv \begin{quantikz}
+            & \ctrl{1} & \gate{Z} & \\
+            & \gate{X} & \gate{Z} &
+        \end{quantikz}
+
+        \begin{quantikz}
+            & \ctrl{1} & \ghost{Z} & \\
+            & \gate{X} & \gate{Z} &
+        \end{quantikz} \equiv \begin{quantikz}
+            & \gate{Z} & \ctrl{1} & \\
+            & \gate{Z} & \gate{X} &
+        \end{quantikz}
+
+        \begin{quantikz}
+            & \ctrl{1} & & \\
+            & \gate{X} & \ctrl{1} & \\
+            & & \gate{X} &
+        \end{quantikz} \equiv \begin{quantikz}
+            & \ctrl{2} & & \ctrl{1} & \\
+            & & \ctrl{1} & \gate{X} & \\
+            & \gate{X} & \gate{X} & &
+        \end{quantikz}
+
+        \columnbreak[1]\section{Quantum Teleportation}\label{sec:quantum-teleportation}
+
+        \begin{quantikz}
+            \setwiretype{n} & & & & \lstick{\(\ket{\psi}\)} & \ctrl{1} \setwiretype{q} & \gate{H} & \meter{} & \ctrl[vertical wire=c]{2} \setwiretype{c} \\
+            \lstick{\(\ket{0}\)} & & \gate{X}\slice{} & & & \gate{X} & & \meter{} & \setwiretype{n} \\
+            \lstick{\(\ket{0}\)} & \gate{H} & \ctrl{-1} & & & & & \gate{X} \wire[u][1]{c} & \gate{Z} & \rstick{\ket{\psi}}
+        \end{quantikz}
+
+        \columnbreak[1]\section{Quantum Gate Teleportation}\label{sec:quantum-gate-teleportation}
+
+        \begin{quantikz}
+            \setwiretype{n} & & & \slice{} & & \lstick{\(\ket{\psi}\)} & \ctrl{1} \setwiretype{q} & \gate{H} & \meter{} & \setwiretype{c} \rstick{\(a\)} \\
+            & \gate{H} & \ctrl{1} & & & & \gate{X} & & \meter{} & \setwiretype{c} \rstick{\(b\)} \\
+            & & \gate{X} & \ctrl{1} \gategroup[2]{} & & \gate{X^b} & & \gate{Z^c} & \gate{Z^a} & \rstick[2]{\(\mathbf{CNOT} \ket{\psi, \varphi}\)} \\
+            & & \gate{X} & \gate{X} & & \gate{X^b} & \gate{X^d} & \gate{Z^c} & & \\
+            & \gate{H} & \ctrl{-1} & & & & \gate{X} & & \meter{} & \setwiretype{c} \rstick{\(d\)} \\
+            \setwiretype{n} & & & & & \lstick{\(\ket{\varphi}\)} & \ctrl{-1} \setwiretype{q} & \gate{H} & \meter{} & \setwiretype{c} \rstick{\(c\)}
         \end{quantikz}
 
     \end{multicols*}
