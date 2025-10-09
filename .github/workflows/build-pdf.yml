@@ -27,6 +27,7 @@ jobs:
             tikz
             quantikz
             xargs
+            xkeyval
       - name: Setup Just
         uses: extractions/setup-just@v3
       - name: Build
