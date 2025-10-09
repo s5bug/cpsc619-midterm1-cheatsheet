@@ -31,6 +31,7 @@ jobs:
             xstring
             mathtools
             environ
+            tikz-cd
       - name: Setup Just
         uses: extractions/setup-just@v3
       - name: Build
