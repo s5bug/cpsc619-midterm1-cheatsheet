@@ -79,5 +79,29 @@
             \ghost{Z} & \ctrl{-1} &
         \end{quantikz}
 
+        \begin{quantikz}
+            & \ctrl{1} & \\
+            & \gate{X} &
+        \end{quantikz} \equiv \begin{quantikz}
+            & & \ctrl{1} & & \\
+            & \gate{H} & \gate{Z} & \gate{H} &
+        \end{quantikz}
+
+        \begin{quantikz}
+            & \gate{H} & \ctrl{1} & \gate{H} & \\
+            & \gate{H} & \gate{X} & \gate{H} &
+        \end{quantikz} \equiv \begin{quantikz}
+            & \gate{X} & \\
+            \ghost{H} & \ctrl{-1} &
+        \end{quantikz}
+
+        \begin{quantikz}
+            & \gate{H} & \ctrl{1} & \\
+            & \gate{H} & \gate{X} &
+        \end{quantikz} \equiv \begin{quantikz}
+            & \gate{X} & \gate{H} & \\
+            & \ctrl{-1} & \gate{H} &
+        \end{quantikz}
+
     \end{multicols*}
 \end{document}

@@ -26,6 +26,7 @@ jobs:
             amsmath
             tikz
             quantikz
+            xargs
       - name: Setup Just
         uses: extractions/setup-just@v3
       - name: Build
