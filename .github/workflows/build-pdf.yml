@@ -30,6 +30,7 @@ jobs:
             xkeyval
             xstring
             mathtools
+            environ
       - name: Setup Just
         uses: extractions/setup-just@v3
       - name: Build
