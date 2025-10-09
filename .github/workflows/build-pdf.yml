@@ -24,6 +24,8 @@ jobs:
             ifthen
             geometry
             amsmath
+            tikz
+            quantikz
       - name: Setup Just
         uses: extractions/setup-just@v3
       - name: Build

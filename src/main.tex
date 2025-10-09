@@ -71,6 +71,13 @@
 
         \columnbreak[1]\section{Circuit Equivalences}\label{sec:circuit-equivalences}
 
+        \begin{quantikz}
+            \ghost{Z} & \ctrl{1} & \\
+            & \gate{Z} &
+        \end{quantikz} \equiv \begin{quantikz}
+            & \gate{Z} & \\
+            \ghost{Z} & \ctrl{-1} &
+        \end{quantikz}
 
     \end{multicols*}
 \end{document}
