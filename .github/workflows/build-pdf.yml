@@ -11,27 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-      - uses: TeX-Live/setup-texlive-action@v3
-        with:
-          packages: |
-            scheme-basic
-            latexmk
-            koma-script
-            hyperref
-            calc
-            multicol
-            ifthen
-            geometry
-            amsmath
-            tikz
-            quantikz
-            xargs
-            xkeyval
-            xstring
-            mathtools
-            environ
-            tikz-cd
+        uses: actions/checkout@v6
+      - name: Set up TeX Live
+        uses: s5bug/dtmgr-action@024de18a30aa474f88f9d8f4a527e56f645c10b7
       - name: Setup Just
         uses: extractions/setup-just@v3
       - name: Build
