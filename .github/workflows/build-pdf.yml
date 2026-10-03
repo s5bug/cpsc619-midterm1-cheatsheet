@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Set up TeX Live
-        uses: s5bug/dtmgr-action@024de18a30aa474f88f9d8f4a527e56f645c10b7
+        uses: s5bug/dtmgr-action@v1
       - name: Setup Just
         uses: extractions/setup-just@v3
       - name: Build
